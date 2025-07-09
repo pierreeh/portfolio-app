@@ -1,10 +1,10 @@
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import ErrorPage from "./pages/errorPage";
-
-const Home = lazy(() => import("./pages/home"));
+const ErrorPage = lazy(() => import("./pages/errorPage"));
 const Layout = lazy(() => import("./components/layout"));
+const Home = lazy(() => import("./pages/home"));
+const Country = lazy(() => import("./pages/country"));
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -20,6 +20,10 @@ export default function Router() {
           path: "/",
           index: true,
           element: <Home />,
+        },
+        {
+          path: "/:slug/:ccn3",
+          element: <Country />,
         },
       ],
     },
