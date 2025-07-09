@@ -1,3 +1,11 @@
+import { Suspense } from "react";
+
+import Router from "./router";
+
 export default function App() {
-  return <div>Home</div>;
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <Router />
+    </Suspense>
+  );
 }
