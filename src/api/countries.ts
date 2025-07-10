@@ -3,7 +3,7 @@ import { baseApi } from ".";
 import type { Country, CountryWithSlug } from "@/types/countries";
 import slugify from "@/lib/slugify";
 
-const countriesApi = baseApi.injectEndpoints({
+export const countriesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     allCountries: builder.query<CountryWithSlug[], void>({
       query: () => "/all?fields=name,flags,population,capital,region,ccn3",
@@ -21,6 +21,7 @@ const countriesApi = baseApi.injectEndpoints({
               { type: "Country", id: "LIST" },
             ]
           : [{ type: "Country", id: "LIST" }],
+      keepUnusedDataFor: 60,
     }),
   }),
   overrideExisting: false,
